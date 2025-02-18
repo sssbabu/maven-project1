@@ -1,1 +1,31 @@
+pipeline {
+    tools{
+        jdk 'JAVA_HOME'
+        maven 'M2_HOME'
+    }
+    agent any
+
+    stages {
+        stage('git clone') {
+            steps {
+                echo 'https://github.com/sssbabu/maven-project1.git'
+            }
+        }
+        stage('compile') {
+            steps {
+                echo 'maven-git-compile'
+            }
+        }
+        stage('test') {
+            steps {
+                echo 'maven-test'
+            }
+        }
+        stage('package') {
+            steps {
+                echo 'mvn-package'
+            }
+        }
+    }
+}
 
